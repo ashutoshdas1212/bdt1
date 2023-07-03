@@ -1,0 +1,38 @@
+Step 1: Create a new project directory and navigate to it in your terminal.
+
+Step 2: Create the project structure by creating the necessary directories. Run the following commands:
+
+bash
+Copy code
+mkdir -p src/main/scala
+mkdir -p src/main/resources
+Step 3: Create the Scala source file. Use a text editor to create a new file called tweetmining.scala inside the src/main/scala directory. Copy and paste your Spark program code into this file.
+
+Step 4: Create a resource file. Use a text editor to create a new file called tweet.sbt inside the src/main/resources directory. Copy and paste the following contents into this file:
+
+scala
+Copy code
+libraryDependencies += "com.typesafe.play" %% "play-json" % "2.9.2"
+This will include the rt.json library as a dependency.
+
+Step 5: Build the project. Open your terminal and navigate to the project directory. Run the following command:
+
+bash
+Copy code
+sbt package
+This command will compile your code and package it into a JAR file.
+
+Step 6: Run the Spark job. After successfully building the project, you can run the Spark job using the spark-submit command. Run the following command:
+
+bash
+Copy code
+spark-submit --class tweetmining --master local[*] target/scala-2.12/tweetmining_2.12-1.0.jar path_to_json_file
+Replace path_to_json_file with the actual path to your JSON file containing the tweets.
+
+Make sure you have Spark installed and configured properly on your machine before running the spark-submit command. Also, ensure that the sbt command is available in your system's PATH.
+
+That's it! The Spark program will be compiled, packaged, and executed using the specified JSON file as input. The results will be printed to the console.
+
+
+
+
